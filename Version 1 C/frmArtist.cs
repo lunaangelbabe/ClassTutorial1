@@ -15,8 +15,8 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        private clsArtistList theArtistList;
-        private clsWorksList theWorksList;
+        private clsArtistList _artistlist;
+        private clsWorksList _workslist;
         private byte sortOrder; // 0 = Name, 1 = Date
 
         private void UpdateDisplay()
@@ -24,18 +24,18 @@ namespace Version_1_C
             txtName.Enabled = txtName.Text == "";
             if (sortOrder == 0)
             {
-                theWorksList.SortByName();
+                _workslist.SortByName();
                 rbByName.Checked = true;
             }
             else
             {
-                theWorksList.SortByDate();
+                _workslist.SortByDate();
                 rbByDate.Checked = true;
             }
 
             lstWorks.DataSource = null;
-            lstWorks.DataSource = theWorksList;
-            lblTotal.Text = Convert.ToString(theWorksList.GetTotalValue());
+            lstWorks.DataSource = _workslist;
+            lblTotal.Text = Convert.ToString(_workslist.GetTotalValue());
         }
 
         public void SetDetails(string prName, string prSpeciality, string prPhone, byte prSortOrder,
@@ -44,8 +44,8 @@ namespace Version_1_C
             txtName.Text = prName;
             txtSpeciality.Text = prSpeciality;
             txtPhone.Text = prPhone;
-            theArtistList = prArtistList;
-            theWorksList = prWorksList;
+            _artistlist = prArtistList;
+            _workslist = prWorksList;
             sortOrder = prSortOrder;
             UpdateDisplay();
         }
@@ -60,13 +60,13 @@ namespace Version_1_C
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            theWorksList.DeleteWork(lstWorks.SelectedIndex);
+            _workslist.DeleteWork(lstWorks.SelectedIndex);
             UpdateDisplay();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            theWorksList.AddWork();
+            _workslist.AddWork();
             UpdateDisplay();
         }
 
@@ -81,7 +81,7 @@ namespace Version_1_C
         public virtual Boolean isValid()
         {
             if (txtName.Enabled && txtName.Text != "")
-                if (theArtistList.Contains(txtName.Text))
+                if (_artistlist.Contains(txtName.Text))
                 {
                     MessageBox.Show("Artist with that name already exists!");
                     return false;
@@ -97,7 +97,7 @@ namespace Version_1_C
             int lcIndex = lstWorks.SelectedIndex;
             if (lcIndex >= 0)
             {
-                theWorksList.EditWork(lcIndex);
+                _workslist.EditWork(lcIndex);
                 UpdateDisplay();
             }
         }

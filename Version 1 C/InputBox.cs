@@ -44,5 +44,10 @@ namespace Version_1_C
         {
             return answer;
         }
+
+        private void InputBox_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

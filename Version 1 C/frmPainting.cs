@@ -33,6 +33,11 @@ namespace Version_1_C
             prHeight = Convert.ToSingle(txtHeight.Text);
             prType = txtType.Text;
         }
+
+        private void frmPainting_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

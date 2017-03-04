@@ -37,9 +37,10 @@ namespace Version_1_C
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(272, 78);
+            this.btnOK.Location = new System.Drawing.Point(363, 96);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(100, 28);
             this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@ namespace Version_1_C
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(191, 78);
+            this.btnCancel.Location = new System.Drawing.Point(255, 96);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -58,41 +60,46 @@ namespace Version_1_C
             // lblQuestion
             // 
             this.lblQuestion.AutoSize = true;
-            this.lblQuestion.Location = new System.Drawing.Point(16, 13);
+            this.lblQuestion.Location = new System.Drawing.Point(21, 16);
+            this.lblQuestion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(59, 13);
+            this.lblQuestion.Size = new System.Drawing.Size(79, 17);
             this.lblQuestion.TabIndex = 2;
             this.lblQuestion.Text = "lblQuestion";
             // 
             // txtAnswer
             // 
-            this.txtAnswer.Location = new System.Drawing.Point(19, 43);
+            this.txtAnswer.Location = new System.Drawing.Point(25, 53);
+            this.txtAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAnswer.Name = "txtAnswer";
-            this.txtAnswer.Size = new System.Drawing.Size(328, 20);
+            this.txtAnswer.Size = new System.Drawing.Size(436, 22);
             this.txtAnswer.TabIndex = 1;
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(16, 104);
+            this.lblError.Location = new System.Drawing.Point(21, 128);
+            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(39, 13);
+            this.lblError.Size = new System.Drawing.Size(54, 17);
             this.lblError.TabIndex = 4;
             this.lblError.Text = "lblError";
             // 
             // InputBox
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 128);
+            this.ClientSize = new System.Drawing.Size(483, 158);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "InputBox";
             this.Text = "InputBox";
+            this.Load += new System.EventHandler(this.InputBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

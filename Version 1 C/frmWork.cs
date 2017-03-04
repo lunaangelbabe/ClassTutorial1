@@ -48,6 +48,10 @@ namespace Version_1_C
         {
             return true;
         }
-    
+
+        private void frmWork_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
