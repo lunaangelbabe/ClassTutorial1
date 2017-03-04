@@ -16,6 +16,70 @@ namespace Version_1_C
         
         private static frmArtist artistDialog = new frmArtist();
 
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public string Speciality
+        {
+            get
+            {
+                return speciality;
+            }
+
+            set
+            {
+                speciality = value;
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+
+            set
+            {
+                phone = value;
+            }
+        }
+
+
+        public clsWorksList Workslist
+        {
+            get
+            {
+                return _workslist;
+            }
+        }
+
+        public clsArtistList Artistlist
+        {
+            get
+            {
+                return _artistlist;
+            }
+        }
+
+        public decimal Totalvalue
+        {
+            get
+            {
+                return _totalvalue;
+            }
+        }
+
         public clsArtist(clsArtistList prArtistList)
         {
             _workslist = new clsWorksList();
@@ -25,22 +89,21 @@ namespace Version_1_C
         
         public void EditDetails()
         {
-            artistDialog.SetDetails(name, speciality, phone, _workslist, _artistlist);
+            artistDialog.SetDetails(this);
             if (artistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                artistDialog.GetDetails(ref name, ref speciality, ref phone);
-                _totalvalue = _workslist.GetTotalValue();
+                _totalvalue = Workslist.GetTotalValue();
             }
         }
 
-        public string GetKey()
-        {
-            return name;
-        }
+    //    public string GetKey()
+    //    {
+    //        return Name;
+    //    }
 
-        public decimal GetWorksValue()
-        {
-            return _totalvalue;
-        }
+    //    public decimal GetWorksValue()
+    //    {
+    //        return Totalvalue;
+    //    }
     }
 }

@@ -18,6 +18,7 @@ namespace Version_1_C
         private clsArtistList _artistlist;
         private clsWorksList _workslist;
         private byte _SortOrder; // 0 = Name, 1 = Date
+        private clsArtist _Artist;
 
         private void UpdateDisplay()
         {
@@ -38,25 +39,14 @@ namespace Version_1_C
             lblTotal.Text = Convert.ToString(_workslist.GetTotalValue());
         }
 
-        public void SetDetails(string prName, string prSpeciality, string prPhone,
-                               clsWorksList prWorksList, clsArtistList prArtistList)
+        public void SetDetails(clsArtist prArtist)
         {
-            txtName.Text = prName;
-            txtSpeciality.Text = prSpeciality;
-            txtPhone.Text = prPhone;
-            _artistlist = prArtistList;
-            _workslist = prWorksList;
-            _SortOrder = _workslist.SortOrder;
+            _Artist = prArtist;
+            updateForm();
             UpdateDisplay();
+            ShowDialog();
         }
 
-        public void GetDetails(ref string prName, ref string prSpeciality, ref string prPhone)
-        {
-            prName = txtName.Text;
-            prSpeciality = txtSpeciality.Text;
-            prPhone = txtPhone.Text;
-            _SortOrder = _workslist.SortOrder;
-        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -74,6 +64,7 @@ namespace Version_1_C
         {
             if (isValid())
             {
+                pushData();
                 DialogResult = DialogResult.OK;
             }
         }
@@ -111,6 +102,22 @@ namespace Version_1_C
         private void frmArtist_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void updateForm()
+        {
+            txtName.Text = _Artist.Name;
+            txtSpeciality.Text = _Artist.Speciality;
+            txtPhone.Text = _Artist.Phone;
+            _artistlist = _Artist.Artistlist;
+            _workslist = _Artist.Workslist;
+        }
+
+        private void pushData()
+        {
+            _Artist.Name = txtName.Text;
+            _Artist.Speciality = txtSpeciality.Text;
+            _Artist.Phone = txtPhone.Text;
         }
     }
 }
