@@ -15,7 +15,7 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        private clsArtistList _artistlist;
+        //private clsArtistList _artistlist;
         private clsWorksList _workslist;
         private byte _SortOrder; // 0 = Name, 1 = Date
         private clsArtist _Artist;
@@ -72,7 +72,7 @@ namespace Version_1_C
         public virtual Boolean isValid()
         {
             if (txtName.Enabled && txtName.Text != "")
-                if (_artistlist.Contains(txtName.Text))
+                if (_Artist.IsDuplicate(txtName.Text))
                 {
                     MessageBox.Show("Artist with that name already exists!");
                     return false;
@@ -109,7 +109,7 @@ namespace Version_1_C
             txtName.Text = _Artist.Name;
             txtSpeciality.Text = _Artist.Speciality;
             txtPhone.Text = _Artist.Phone;
-            _artistlist = _Artist.Artistlist;
+            //_artistlist = _Artist.Artistlist;
             _workslist = _Artist.Workslist;
         }
 
